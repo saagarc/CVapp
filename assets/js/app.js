@@ -20,15 +20,21 @@ app.controller('MyController', ['$scope', function($scope) {
    $scope.jobs = obs;
 
    $scope.addJob = function(){
-   	console.log("str");
-   	$scope.jobs.push({'title':$scope.live.title, 'company':'$scope.live.company'});
+   	console.log($scope.jobs[2]);
+   	$scope.jobs.push({
+   		'title':$scope.job.title, 
+   		'company':$scope.job.company, 
+   		'place':$scope.job.place, 
+   		'dates':$scope.job.dates, 
+   		'body':$scope.job.body
+   	});
+   	console.log($scope.jobs[2]);
    }
 
-
-
-
-
-
+   $scope.removeJob = function(index){
+   $scope.jobs.splice(index, index + 1)
+   console.log($scope.jobs[0]);
+   }
 }]);
 
 
