@@ -93,7 +93,7 @@
         <span class="place">{{job.place}}</span>
         <span class="dates pull-right">{{job.dates}}</span>
         <p>{{job.body}}</p>
-        <button ng-click="removeJob()">Remove</button>
+        <button ng-click="removeJob($index)">Remove</button>
       </div>
 
       <div class="jobContainer">
@@ -109,10 +109,11 @@
   
     <div class="edit-modal" >
       <form name="edit-experience" ng-submit="addJob()">
-        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="live.title">
-        Company Name:<input type="text" name="company" value="Media" ng-model="live.company">
-        Dates: <input type="text" ng-model="live.dates">
-        Content: <input type="text" ng-model="live.body">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title">
+        Company Name:<input type="text" name="company" value="Media" ng-model="job.company">
+        Place:<input type="text" ng-model="job.place">
+        Dates: <input type="text" ng-model="job.dates">
+        Content: <input type="text" ng-model="job.body">
         <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
       </form>
     </div>
