@@ -19,7 +19,6 @@ var obs = [{
 app.controller('MyController', ['$scope', function($scope) {
    $scope.jobs = obs;
 
-
    $scope.addJob = function(){
    	console.log("str");
    	$scope.jobs.push({'title':$scope.live.title, 'company':'$scope.live.company'});
