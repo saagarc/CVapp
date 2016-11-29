@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="page-home">
+<div class="page-home" ng-controller="MyController as ctrl">
   <section class="profile">
     <h1>John Doe<span>Web developer {{"Hello, " + "Angular!"}}</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
@@ -76,7 +76,7 @@
     </div>
   </section>
 
-  <section class="experience" ng-controller="MyController as ctrl">
+  <section class="experience" >
     <div class="row">
       <h2>Experience</h2>
       <!-- <div class="jobContainer">
@@ -87,7 +87,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea, unde. Esse voluptas molestias magni rerum deleniti, aperiam corporis.</p>
       </div> -->
 
-      <div class="jobContainer" ng-repeat="job in ctrl.jobs">
+      <div class="jobContainer" ng-repeat="job in jobs">
         <h3>{{job.title}}</h3>
         <span class="company">{{job.company}}</span>
         <span class="place">{{job.place}}</span>
@@ -107,11 +107,12 @@
   </section>
   
     <div class="edit-modal" >
-      <form action="">
-        Job Title:<input lable type="text" value="Webdeveloper" ng-model="live.title">
-        Company Name:<input type="text" value="Media" ng-model="live.company">
+      <form name="edit-experience" ng-submit="addJob()">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="live.title">
+        Company Name:<input type="text" name="company" value="Media" ng-model="live.company">
         Dates: <input type="text" ng-model="live.dates">
         Content: <input type="text" ng-model="live.body">
+        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
       </form>
     </div>
   
