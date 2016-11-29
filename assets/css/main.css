@@ -374,35 +374,32 @@ input[type="button"] {
   width: 100%;
   left: 0; }
 
+.edit-modal {
+  background: #ddd;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 100; }
+
 body {
   margin: 10px;
-  background-color: #ddd;
   overflow-x: hidden; }
-
-.page-home {
-  text-align: center; }
-  .page-home section {
-    max-width: 600px;
+  body section {
+    max-width: 980px;
     margin: 50px auto;
     padding: 40px;
     position: relative;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); }
-    .page-home section:first-child {
-      background-image: url(../img/tools.png);
-      background-position: center; }
-    .page-home section h1 {
+    body section h1 {
       font-weight: 700;
       line-height: 1;
       margin: 20px 0;
       letter-spacing: 1px; }
-  .page-home img {
+  body img {
     max-width: 100%; }
-  .page-home .flex-video-wrap {
-    max-width: 640px;
-    display: inline-block;
-    width: 100%; }
-  .page-home pre {
+  body pre {
     text-align: left;
     font-family: "Fira Mono", monospace;
     font-size: 30px;
@@ -413,9 +410,44 @@ body {
     z-index: -1;
     pointer-events: none; }
     @media (max-width: 500px) {
-      .page-home pre {
+      body pre {
         font-size: 20px; } }
-  .page-home article {
+  body article {
     margin-bottom: 50px; }
-    .page-home article:last-child {
+    body article:last-child {
       margin-bottom: 0px; }
+
+.jobContainer {
+  padding: 20px;
+  position: relative; }
+  .jobContainer::before {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 100%;
+    background-color: #39CCCC;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; }
+  .jobContainer::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 11px;
+    height: 11px;
+    transform: rotate(45deg);
+    left: -4px;
+    top: 50px;
+    z-index: 1; }
+
+.company,
+.place,
+.dates {
+  opacity: 0.5; }
+
+.company::after {
+  content: ", "; }
+
+/*# sourceMappingURL=main.css.map */
