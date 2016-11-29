@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Droid+Sans|Lato|Montserrat|Oxygen|Raleway|Roboto|Roboto+Condensed");
 @font-face {
   font-family: 'Fira Sans';
   font-style: normal;
@@ -227,6 +228,11 @@ a {
   outline: 0; }
   a:hover, a:focus {
     color: #40a6ff; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: regular; }
 
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6 {
