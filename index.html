@@ -21,13 +21,15 @@
 <body>
 
 <div class="page-home" ng-controller="MyController as ctrl">
-  <section class="profile">
+  <section class="profile" id="vcard">
+    <img src="assets/img/profile-male.jpg" />
+
     <h1>John Doe<span>Web developer {{"Hello, " + "Angular!"}}</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
 
     <div class="personals row">
       <div class="col-md-6">
-        <table class="personaltable">
+        <table class="personaltable table table-striped">
             <tbody><tr>
               <td><strong>Phone:</strong></td>
               <td>06 123 456 78</td>
@@ -52,7 +54,7 @@
         </table>
       </div>
       <div class="col-md-6">
-        <table class="personaltable">
+        <table class="personaltable table table-striped">
             <tbody><tr>
               <td><strong>Phone:</strong></td>
               <td>06 123 456 78</td>

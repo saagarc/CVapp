@@ -363,23 +363,6 @@ input[type="button"] {
     transform: rotate(8deg); }
   100% {
     transform: rotate(0deg); } }
-.flex-video {
-  height: 0;
-  margin-bottom: 0.88889rem;
-  overflow: hidden;
-  padding-bottom: 56%;
-  position: relative; }
-
-.flex-video iframe,
-.flex-video object,
-.flex-video embed,
-.flex-video video {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  left: 0; }
-
 .edit-modal {
   background: #ddd;
   height: 50px;
@@ -391,14 +374,14 @@ input[type="button"] {
 body {
   margin: 10px;
   overflow-x: hidden; }
-  body section {
+  body section:not(#vcard) {
     max-width: 980px;
     margin: 50px auto;
     padding: 40px;
     position: relative;
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); }
-    body section h1 {
+    body section:not(#vcard) h1 {
       font-weight: 700;
       line-height: 1;
       margin: 20px 0;
@@ -455,5 +438,11 @@ body {
 
 .company::after {
   content: ", "; }
+
+.profile {
+  position: absolute;
+  display: inline-block;
+  width: 200px;
+  min-width: 300px; }
 
 /*# sourceMappingURL=main.css.map */
