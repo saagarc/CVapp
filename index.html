@@ -2,6 +2,10 @@
 <html lang="en" ng-app="appEditor">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+  <script src="assets/js/jquery-2.1.4.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
   <script src="assets/js/app.js"></script>
 
 
@@ -91,7 +95,7 @@
         <h3>{{job.title}}</h3>
         <span class="company">{{job.company}}</span>
         <span class="place">{{job.place}}</span>
-        <span class="dates pull-right">{{job.dates}}</span>
+        <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
         <p>{{job.body}}</p>
         <button ng-click="removeJob($index)">Remove</button>
       </div>
@@ -112,11 +116,14 @@
         Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title">
         Company Name:<input type="text" name="company" value="Media" ng-model="job.company">
         Place:<input type="text" ng-model="job.place">
-        Dates: <input type="text" ng-model="job.dates">
+        Dates: from<input type="date" ng-model="job.dates" id="dateFrom">
+        to<input type="text" ng-model="job.dates2" id="dateTill">
         Content: <input type="text" ng-model="job.body">
         <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
       </form>
     </div>
+
+
   
   
 
@@ -132,7 +139,7 @@
 
 </div>
 
-<script src="assets/js/jquery-2.1.4.min.js"></script>
+
 <script src="assets/js/functions.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
