@@ -12,7 +12,7 @@
   <title>CV</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/main.css" />
 
@@ -20,112 +20,92 @@
 </head>
 <body>
 
-<div class="page-home" ng-controller="MyController as ctrl">
+<div class="page-home container-fluid row" ng-controller="MyController as ctrl">
   <section class="profile" id="vcard">
     <img src="assets/img/profile-male.jpg" />
 
-    <h1>John Doe<span>Web developer {{"Hello, " + "Angular!"}}</span></h1>
+    <h1>John Doe<span>Web developer</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
 
-    <div class="personals row">
-      <div class="col-md-6">
-        <table class="personaltable table table-striped">
-            <tbody><tr>
-              <td><strong>Phone:</strong></td>
-              <td>06 123 456 78</td>
-            </tr>
-            <tr>
-              <td><strong>Email:</strong></td>
-              <td>email@gmail.com</td>
-            </tr>
-            <tr>
-              <td><strong>Website:</strong></td>
-              <td>www.thisweb.com</td>
-            </tr>
-            <tr>
-              <td><strong>D.o.b.:</strong></td>
-              <td>9 Maart, 1992</td>
-            </tr>
-            <tr>
-              <td><strong>Adres:</strong></td>
-              <td>Wegstraat 21, 2121 AA, Amsterdam.</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="personals row">
+        <div class="col-md-12">
+          <table class="personaltable table ">
+              <tbody><tr>
+                <td><strong>Phone:</strong></td>
+                <td>06 123 456 78</td>
+              </tr>
+              <tr>
+                <td><strong>Email:</strong></td>
+                <td>email@gmail.com</td>
+              </tr>
+              <tr>
+                <td><strong>Website:</strong></td>
+                <td>www.thisweb.com</td>
+              </tr>
+              <tr>
+                <td><strong>D.o.b.:</strong></td>
+                <td>9 Maart, 1992</td>
+              </tr>
+              <tr>
+                <td><strong>Adres:</strong></td>
+                <td>Wegstraat 21, 2121 AA, Amsterdam.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
       </div>
-      <div class="col-md-6">
-        <table class="personaltable table table-striped">
-            <tbody><tr>
-              <td><strong>Phone:</strong></td>
-              <td>06 123 456 78</td>
-            </tr>
-            <tr>
-              <td><strong>Email:</strong></td>
-              <td>email@gmail.com</td>
-            </tr>
-            <tr>
-              <td><strong>Website:</strong></td>
-              <td>www.thisweb.com</td>
-            </tr>
-            <tr>
-              <td><strong>D.o.b.:</strong></td>
-              <td>9 Maart, 1992</td>
-            </tr>
-            <tr>
-              <td><strong>Adres:</strong></td>
-              <td>Wegstraat 21, 2121 AA, Amsterdam.</td>
-            </tr>
-          </tbody>
-      </table>
+    </section>
+
+  <div class="bodyhome row">
+    <section class="experience col-md-6" >
+      <div class="row">
+        <h2>Experience</h2>
+        <!-- <div class="jobContainer">
+          <h3>Webdeveloper</h3>
+          <span class="company">@Mediabureau</span>
+          <span class="place">Almere</span>
+          <span class="dates pull-right">25 january 2014 - 25 january 2015</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea, unde. Esse voluptas molestias magni rerum deleniti, aperiam corporis.</p>
+        </div> -->
+
+        <div id="{{'job'+$index}}" class="jobContainer" ng-repeat="job in jobs">
+          <h3 ng-click="editJob(job)">{{job.title}}</h3>
+          <span class="company">{{job.company}}</span>
+          <span class="place">{{job.place}}</span>
+          <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
+          <p>{{job.body}}</p>
+          <button ng-click="removeJob($index)">Remove</button>
+        </div>
+
+        <div class="jobContainer">
+          <h3>{{live.title}}</h3>
+          <span class="company">{{live.company}}</span>
+          <span class="place">{{live.place}}</span>
+          <span class="dates pull-right">{{live.dates}}</span>
+          <p>{{live.body}}</p>
+        </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="experience" >
-    <div class="row">
-      <h2>Experience</h2>
-      <!-- <div class="jobContainer">
-        <h3>Webdeveloper</h3>
-        <span class="company">@Mediabureau</span>
-        <span class="place">Almere</span>
-        <span class="dates pull-right">25 january 2014 - 25 january 2015</span>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea, unde. Esse voluptas molestias magni rerum deleniti, aperiam corporis.</p>
-      </div> -->
-
-      <div id="{{'job'+$index}}" class="jobContainer" ng-repeat="job in jobs">
-        <h3>{{job.title}}</h3>
-        <span class="company">{{job.company}}</span>
-        <span class="place">{{job.place}}</span>
-        <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
-        <p>{{job.body}}</p>
-        <button ng-click="removeJob($index)">Remove</button>
-      </div>
-
-      <div class="jobContainer">
-        <h3>{{live.title}}</h3>
-        <span class="company">{{live.company}}</span>
-        <span class="place">{{live.place}}</span>
-        <span class="dates pull-right">{{live.dates}}</span>
-        <p>{{live.body}}</p>
+    <section class="education col-md-6">
+      
+    </section>
+    
+      <div class="edit-modal" >
+        <form name="edit-experience" ng-submit="addJob()">
+          Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title" required>
+          Company Name:<input type="text" name="company" value="Media" ng-model="job.company" required>
+          Place:<input type="text" ng-model="job.place" required>
+          Dates: from<input type="date" ng-model="job.dates" id="dateFrom" >
+          to<input type="text" ng-model="job.dates2" id="dateTill">
+          Content: <input type="text" ng-model="job.body" >
+          <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
+        </form>
       </div>
 
-    </div>
-  </section>
-  
-    <div class="edit-modal" >
-      <form name="edit-experience" ng-submit="addJob()">
-        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title">
-        Company Name:<input type="text" name="company" value="Media" ng-model="job.company">
-        Place:<input type="text" ng-model="job.place">
-        Dates: from<input type="date" ng-model="job.dates" id="dateFrom">
-        to<input type="text" ng-model="job.dates2" id="dateTill">
-        Content: <input type="text" ng-model="job.body">
-        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
-      </form>
-    </div>
-
-
+  </div>
   
   
 

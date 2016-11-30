@@ -29,22 +29,26 @@ function dateConverter(date){
 app.controller('MyController', ['$scope', function($scope) {
    $scope.jobs = obs;
 
-$scope.addJob = function(){
-	var fromDate = $j( "#dateFrom").datepicker( "getDate" );
-	var tillDate = $j( "#dateTill").datepicker( "getDate" );
-	$scope.jobs.push({
-		'title':$scope.job.title, 
-		'company':$scope.job.company, 
-		'place':$scope.job.place, 
-		'dates':[dateConverter(fromDate), dateConverter(tillDate)], 
-		'body':$scope.job.body
-	})
-}
+	$scope.addJob = function(){
+		var fromDate = $j( "#dateFrom").datepicker( "getDate" );
+		var tillDate = $j( "#dateTill").datepicker( "getDate" );
+		$scope.jobs.push({
+			'title':$scope.job.title, 
+			'company':$scope.job.company, 
+			'place':$scope.job.place, 
+			'dates':[dateConverter(fromDate), dateConverter(tillDate)], 
+			'body':$scope.job.body
+		})
+	}
 
-   $scope.removeJob = function(index){
-	   $scope.jobs.splice(index, index + 1)
-	   console.log($scope.jobs[0]);
-   }
+	$scope.removeJob = function(index){
+		   $scope.jobs.splice(index, index + 1)
+		   console.log($scope.jobs[0]);
+	}
+
+	$scope.editJob = function(job){
+		
+	}
 
 
 }]);
