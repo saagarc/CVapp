@@ -1,0 +1,38 @@
+.jobContainer
+	padding: 20px
+	position: relative
+
+	&::before
+		content: ''
+		display: block
+		width: 3px
+		height: 100%
+		background-color: $teal
+		opacity: .5
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 1
+
+	&::after
+		content: ''
+		position: absolute
+		background-color: black
+		width: 11px
+		height: 11px
+		transform: rotate(45deg)
+		left: -4px
+		top: 50px
+		z-index: 1
+
+
+.company,
+.place,
+.dates
+	opacity: .5
+
+.company
+	&::after
+		content: ", "
+
+	
