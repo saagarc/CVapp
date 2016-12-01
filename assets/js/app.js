@@ -27,7 +27,7 @@ function dateConverter(date){
 }
 
 app.controller('MyController', ['$scope', function($scope) {
-<<<<<<< HEAD
+
    $scope.jobs = obs;
 
 	$scope.addJob = function(){
@@ -50,7 +50,7 @@ app.controller('MyController', ['$scope', function($scope) {
 	$scope.editJob = function(job){
 		
 	}
-=======
+
 	$scope.jobs = obs;
 	$scope.editing = false;
 	$scope.editIndex = "";
@@ -93,7 +93,7 @@ app.controller('MyController', ['$scope', function($scope) {
 	   $scope.jobs.splice(index, index + 1)
 	   console.log($scope.jobs[0]);
    }
->>>>>>> origin/master
+
 
 	//button for editing a section
 	$scope.editButton = function(index){

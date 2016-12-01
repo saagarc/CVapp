@@ -25,7 +25,7 @@
     <img src="assets/img/profile-male.jpg" />
     <form>
     test:<input type="text" id="testForm">
-      </form>
+    </form>
 
     <h1>John Doe<span>Web developer</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
@@ -55,10 +55,10 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        
+        </div>        
       </div>
-    </section>
+
+  </section>
 
   <div class="bodyhome row">
     <section class="experience col-md-6" >
@@ -90,10 +90,10 @@
         </div>
 
       </div>
-<<<<<<< HEAD
+
     </section>
-=======
-    </div>
+
+  </div>
   </section>
 
 
@@ -117,27 +117,26 @@
         <button ng-click="removeJob($index)">Remove</button>
         <button ng-click="editButton($index)">Edit</button>
       </div>
->>>>>>> origin/master
 
-    <section class="education col-md-6">
-      
-    </section>
-    
-      <div class="edit-modal" >
-        <form name="edit-experience" ng-submit="addJob()">
-          Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title" required>
-          Company Name:<input type="text" name="company" value="Media" ng-model="job.company" required>
-          Place:<input type="text" ng-model="job.place" required>
-          Dates: from<input type="date" ng-model="job.dates" id="dateFrom" >
-          to<input type="text" ng-model="job.dates2" id="dateTill">
-          Content: <input type="text" ng-model="job.body" >
-          <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
-        </form>
-      </div>
 
-<<<<<<< HEAD
+  </section>
+
+  <section class="education col-md-6">
+    <div class="edit-modal" >
+      <form name="edit-experience" ng-submit="addJob()">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title" required>
+        Company Name:<input type="text" name="company" value="Media" ng-model="job.company" required>
+        Place:<input type="text" ng-model="job.place" required>
+        Dates: from<input type="date" ng-model="job.dates" id="dateFrom" >
+        to<input type="text" ng-model="job.dates2" id="dateTill">
+        Content: <input type="text" ng-model="job.body" >
+        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
+      </form>
+    </div>
+
+
   </div>
-=======
+
     </div>
   </section>
 
@@ -156,8 +155,6 @@
     </div>
 
 
->>>>>>> origin/master
-  
   
 
 
