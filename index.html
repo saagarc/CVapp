@@ -23,9 +23,6 @@
 <div class="page-home container-fluid row" ng-controller="MyController as ctrl">
   <section class="profile" id="vcard">
     <img src="assets/img/profile-male.jpg" />
-    <form>
-    test:<input type="text" id="testForm">
-    </form>
 
     <h1>John Doe<span>Web developer</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
@@ -82,13 +79,7 @@
           <button ng-click="editButton($index)">Edit</button>
         </div>
 
-        <div class="jobContainer">
-          <h3>{{live.title}}</h3>
-          <span class="company">{{live.company}}</span>
-          <span class="place">{{live.place}}</span>
-          <span class="dates pull-right">{{live.dates}}</span>
-          <p>{{live.body}}</p>
-        </div>
+        
 
       </div>
     </section>

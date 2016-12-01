@@ -6,14 +6,13 @@ var obs = [{
 	title: 'Webdeveloper',
 	company: 'Mediabureau',
 	place: 'Almere',
-	dates: ['25 januari', '2 februari'],
-	dates: ['25 januari 2016', '2 februari 2016', "Mo Jan 25 2016" , 'Tue Feb 2 2016'],
+	dates: ['25 januari 2016', '02 februari 2016', "Mo Jan 25 2016" , 'Tue Feb 2 2016'],
 	body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea,'
 },	{
 	title: 'Chauffeur',
 	company: 'TNT',
 	place: 'Amsterdam',
-	dates: ['25 januari', '2 februari'],
+	dates: ['25 januari 2016', '02 februari 2016', 'Mo Jan 25 2016' , 'Tue Feb 2 2016'],
 	body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
 
 }
@@ -28,27 +27,15 @@ function dateConverter(date){
 }
 
 app.controller('MyController', ['$scope', function($scope) {
-   $scope.jobs = obs;
-
+	$scope.jobs = obs;
+	$scope.editing = false;
+	$scope.editIndex = "";
+	$scope.dateTest = "";
 
 	//adds the content of edit-experience form to object or if editing is true replaces part of object
-
 	$scope.addJob = function(){
 		var fromDate = $j( "#dateFrom").datepicker( "getDate" );
 		var tillDate = $j( "#dateTill").datepicker( "getDate" );
-		$scope.jobs.push({
-			'title':$scope.job.title, 
-			'company':$scope.job.company, 
-			'place':$scope.job.place, 
-			'dates':[dateConverter(fromDate), dateConverter(tillDate)], 
-			'body':$scope.job.body
-		})
-	}
-
-	$scope.removeJob = function(index){
-		   $scope.jobs.splice(index, index + 1)
-		   console.log($scope.jobs[0]);
-	}
 
 		if ($scope.editing == false){
 			$scope.jobs.push({
@@ -78,12 +65,21 @@ app.controller('MyController', ['$scope', function($scope) {
    $scope.removeJob = function(index){
 	   $scope.jobs.splice(index, index + 1)
 	   console.log($scope.jobs[0]);
+   }
 
-
-	$scope.editJob = function(job){
-		
+	//button for editing a section
+	$scope.editButton = function(index){
+		 var fromDateObject = new Date($scope.jobs[index].dates[2]);
+		 var tillDateObject = new Date($scope.jobs[index].dates[3]);
+		$scope.editIndex = index;
+		$scope.editing = true;
+		$scope.jobTitle = $scope.jobs[index].title;
+		$scope.jobCompany = $scope.jobs[index].company;
+		$scope.jobPlace = $scope.jobs[index].place;		
+		$j("#dateFrom").datepicker( "setDate", fromDateObject);
+		$j("#dateTill").datepicker( "setDate", tillDateObject);
+		$scope.jobBody = $scope.jobs[index].body;
 	}
-
 
 	//clears input field
 	$scope.clearInput = function(){
@@ -94,7 +90,6 @@ app.controller('MyController', ['$scope', function($scope) {
 		$j("#dateFrom").datepicker( "setDate", null);
 		$j("#dateTill").datepicker( "setDate", null);
 	}
-
 
 }]);
 
