@@ -23,6 +23,9 @@
 <div class="page-home container-fluid row" ng-controller="MyController as ctrl">
   <section class="profile" id="vcard">
     <img src="assets/img/profile-male.jpg" />
+    <form>
+    test:<input type="text" id="testForm">
+      </form>
 
     <h1>John Doe<span>Web developer</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
@@ -87,7 +90,34 @@
         </div>
 
       </div>
+<<<<<<< HEAD
     </section>
+=======
+    </div>
+  </section>
+
+
+  <section class="experience" >
+    <div class="row">
+      <h2>Experience</h2>
+      <!-- <div class="jobContainer">
+        <h3>Webdeveloper</h3>
+        <span class="company">@Mediabureau</span>
+        <span class="place">Almere</span>
+        <span class="dates pull-right">25 january 2014 - 25 january 2015</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea, unde. Esse voluptas molestias magni rerum deleniti, aperiam corporis.</p>
+      </div> -->
+
+      <div id="{{'job'+$index}}" class="jobContainer" ng-repeat="job in jobs">
+        <h3>{{job.title}}</h3>
+        <span class="company">{{job.company}}</span>
+        <span class="place">{{job.place}}</span>
+        <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
+        <p>{{job.body}}</p>
+        <button ng-click="removeJob($index)">Remove</button>
+        <button ng-click="editButton($index)">Edit</button>
+      </div>
+>>>>>>> origin/master
 
     <section class="education col-md-6">
       
@@ -105,7 +135,28 @@
         </form>
       </div>
 
+<<<<<<< HEAD
   </div>
+=======
+    </div>
+  </section>
+
+
+  
+    <div class="edit-modal" >
+      <form name="edit-experience" ng-submit="addJob()">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle">
+        Company Name:<input type="text" name="company" value="Media" ng-model="jobCompany">
+        Place:<input type="text" ng-model="jobPlace" >
+        Dates: from<input type="text" ng-model="jobDates" id="dateFrom">
+        to<input type="text" ng-model="jobDates2" id="dateTill">
+        Content: <input type="text" ng-model="jobBody">
+        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
+      </form>
+    </div>
+
+
+>>>>>>> origin/master
   
   
 
