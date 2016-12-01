@@ -6,11 +6,8 @@ var obs = [{
 	title: 'Webdeveloper',
 	company: 'Mediabureau',
 	place: 'Almere',
-<<<<<<< HEAD
 	dates: ['25 januari', '2 februari'],
-=======
 	dates: ['25 januari 2016', '2 februari 2016', "Mo Jan 25 2016" , 'Tue Feb 2 2016'],
->>>>>>> origin/master
 	body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea,'
 },	{
 	title: 'Chauffeur',
