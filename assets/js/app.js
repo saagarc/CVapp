@@ -6,7 +6,7 @@ var obs = [{
 	title: 'Webdeveloper',
 	company: 'Mediabureau',
 	place: 'Almere',
-	dates: ['25 januari 2016', '2 februari 2016', 'Mo Jan 25 2016' , 'Tue Feb 2 2016'],
+	dates: ['25 januari 2016', '2 februari 2016', "Mo Jan 25 2016" , 'Tue Feb 2 2016'],
 	body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea,'
 },	{
 	title: 'Chauffeur',
@@ -19,7 +19,7 @@ var obs = [{
 ]
 //converts input date to a readable date string
 function dateConverter(date){
-	fixedDate = date.setDate(date.getDate() + 1);
+	fixedDate = date.setHours(date.getHours() + 1);
 	convertedDate = date.toISOString();
 	var writtenMonths = ["Januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "october", "november", "december"];
 	var month = writtenMonths[convertedDate.substring(5, 7) - 1];
@@ -32,14 +32,9 @@ app.controller('MyController', ['$scope', function($scope) {
 	$scope.editIndex = "";
 	$scope.dateTest = "";
 
-
 	//adds the content of edit-experience form to object or if editing is true replaces part of object
 	$scope.addJob = function(){
 		var fromDate = $j( "#dateFrom").datepicker( "getDate" );
-		var testDate = fromDate.toDateString();
-		console.log(testDate);
-
-		$scope.dateTest = fromDate;
 		var tillDate = $j( "#dateTill").datepicker( "getDate" );
 
 		if ($scope.editing == false){
@@ -55,13 +50,15 @@ app.controller('MyController', ['$scope', function($scope) {
 				'title':$scope.jobTitle, 
 				'company':$scope.jobCompany, 
 				'place':$scope.jobPlace, 
-				'dates':[dateConverter(fromDate), dateConverter(tillDate), fromDate.toDateString(), tillDate.toDateString()], 
+				'dates':[dateConverter(fromDate), dateConverter(tillDate), fromDate.toDateString(-1), tillDate.toDateString()], 
 				'body':$scope.jobBody
 			}
 		}
 		$scope.editing = true;
 		$scope.editIndex = "";
 		console.log($scope.jobs[0].dates)
+
+		$scope.clearInput();
 	}	
 
 	//button for removing of the given section
@@ -84,8 +81,19 @@ app.controller('MyController', ['$scope', function($scope) {
 		$scope.jobBody = $scope.jobs[index].body;
 	}
 
+	//clears input field
+	$scope.clearInput = function(){
+		$scope.jobTitle = "";
+		$scope.jobCompany = "";
+		$scope.jobPlace = "";
+		$scope.jobBody = "";
+		$j("#dateFrom").datepicker( "setDate", null);
+		$j("#dateTill").datepicker( "setDate", null);
+	}
+
 }]);
 
+//sets datepicker widgets format
 $j(function(){
 	$j( '#dateTill' ).datepicker({ dateFormat: 'dd-mm-yy'}); 
 	$j( '#dateFrom' ).datepicker({ dateFormat: 'dd-mm-yy'}); 
@@ -93,8 +101,3 @@ $j(function(){
 });
 
 
-if (window.jQuery) {  
-    console.log("loaded") 
-} else {
-    console.log("notloaded")
-}
