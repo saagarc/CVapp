@@ -54,9 +54,8 @@ app.controller('MyController', ['$scope', function($scope) {
 				'body':$scope.jobBody
 			}
 		}
-		$scope.editing = true;
+		$scope.editing = false;
 		$scope.editIndex = "";
-		console.log($scope.jobs[0].dates)
 
 		$scope.clearInput();
 	}	
@@ -64,7 +63,9 @@ app.controller('MyController', ['$scope', function($scope) {
 	//button for removing of the given section
    $scope.removeJob = function(index){
 	   $scope.jobs.splice(index, index + 1)
-	   console.log($scope.jobs[0]);
+	   $scope.editing = false;
+	   $scope.editIndex = "";
+	   $scope.clearInput();
    }
 
 	//button for editing a section
@@ -97,7 +98,6 @@ app.controller('MyController', ['$scope', function($scope) {
 $j(function(){
 	$j( '#dateTill' ).datepicker({ dateFormat: 'dd-mm-yy'}); 
 	$j( '#dateFrom' ).datepicker({ dateFormat: 'dd-mm-yy'}); 
-	console.log("datepicker test")
 });
 
 
