@@ -23,6 +23,9 @@
 <div class="page-home" ng-controller="MyController as ctrl">
   <section class="profile" id="vcard">
     <img src="assets/img/profile-male.jpg" />
+    <form>
+    test:<input type="text" id="testForm">
+      </form>
 
     <h1>John Doe<span>Web developer {{"Hello, " + "Angular!"}}</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
@@ -82,6 +85,7 @@
     </div>
   </section>
 
+
   <section class="experience" >
     <div class="row">
       <h2>Experience</h2>
@@ -100,6 +104,7 @@
         <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
         <p>{{job.body}}</p>
         <button ng-click="removeJob($index)">Remove</button>
+        <button ng-click="editButton($index)">Edit</button>
       </div>
 
       <div class="jobContainer">
@@ -112,15 +117,17 @@
 
     </div>
   </section>
+
+
   
     <div class="edit-modal" >
       <form name="edit-experience" ng-submit="addJob()">
-        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title">
-        Company Name:<input type="text" name="company" value="Media" ng-model="job.company">
-        Place:<input type="text" ng-model="job.place">
-        Dates: from<input type="text" ng-model="job.dates" id="dateFrom">
-        to<input type="text" ng-model="job.dates2" id="dateTill">
-        Content: <input type="text" ng-model="job.body">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle">
+        Company Name:<input type="text" name="company" value="Media" ng-model="jobCompany">
+        Place:<input type="text" ng-model="jobPlace" >
+        Dates: from<input type="text" ng-model="jobDates" id="dateFrom">
+        to<input type="text" ng-model="jobDates2" id="dateTill">
+        Content: <input type="text" ng-model="jobBody">
         <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
       </form>
     </div>
