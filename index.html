@@ -23,39 +23,42 @@
 <div class="page-home container-fluid row" ng-controller="MyController as ctrl">
   <section class="profile" id="vcard">
     <img src="assets/img/profile-male.jpg" />
+    <form>
+    test:<input type="text" id="testForm">
+    </form>
 
     <h1>John Doe<span>Web developer</span></h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium vitae, aut eveniet dignissimos harum explicabo doloribus possimus eius delectus laudantium ab mollitia magni exercitationem. Voluptatem molestiae expedita, modi deleniti.</p>
 
-      <div class="personals row">
-        <div class="col-md-12">
-          <table class="personaltable table ">
-              <tbody><tr>
-                <td><strong>Phone:</strong></td>
-                <td>06 123 456 78</td>
-              </tr>
-              <tr>
-                <td><strong>Email:</strong></td>
-                <td>email@gmail.com</td>
-              </tr>
-              <tr>
-                <td><strong>Website:</strong></td>
-                <td>www.thisweb.com</td>
-              </tr>
-              <tr>
-                <td><strong>D.o.b.:</strong></td>
-                <td>9 Maart, 1992</td>
-              </tr>
-              <tr>
-                <td><strong>Adres:</strong></td>
-                <td>Wegstraat 21, 2121 AA, Amsterdam.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-      </div>
-    </section>
+    <div class="personals row">
+      <div class="col-md-12">
+        <table class="personaltable table ">
+            <tbody><tr>
+              <td><strong>Phone:</strong></td>
+              <td>06 123 456 78</td>
+            </tr>
+            <tr>
+              <td><strong>Email:</strong></td>
+              <td>email@gmail.com</td>
+            </tr>
+            <tr>
+              <td><strong>Website:</strong></td>
+              <td>www.thisweb.com</td>
+            </tr>
+            <tr>
+              <td><strong>D.o.b.:</strong></td>
+              <td>9 Maart, 1992</td>
+            </tr>
+            <tr>
+              <td><strong>Adres:</strong></td>
+              <td>Wegstraat 21, 2121 AA, Amsterdam.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>      
+    </div>
+
+  </section>
 
   <div class="bodyhome row">
     <section class="experience col-md-6" >
@@ -70,12 +73,13 @@
         </div> -->
 
         <div id="{{'job'+$index}}" class="jobContainer" ng-repeat="job in jobs">
-          <h3 ng-click="editJob(job)">{{job.title}}</h3>
+          <h3>{{job.title}}</h3>
           <span class="company">{{job.company}}</span>
           <span class="place">{{job.place}}</span>
           <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
           <p>{{job.body}}</p>
           <button ng-click="removeJob($index)">Remove</button>
+          <button ng-click="editButton($index)">Edit</button>
         </div>
 
         <div class="jobContainer">
@@ -93,17 +97,17 @@
       
     </section>
     
-      <div class="edit-modal" >
-        <form name="edit-experience" ng-submit="addJob()">
-          Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="job.title" required>
-          Company Name:<input type="text" name="company" value="Media" ng-model="job.company" required>
-          Place:<input type="text" ng-model="job.place" required>
-          Dates: from<input type="date" ng-model="job.dates" id="dateFrom" >
-          to<input type="text" ng-model="job.dates2" id="dateTill">
-          Content: <input type="text" ng-model="job.body" >
-          <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
-        </form>
-      </div>
+    <div class="edit-modal" >
+      <form name="edit-experience" ng-submit="addJob()">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle">
+        Company Name:<input type="text" name="company" value="Media" ng-model="jobCompany">
+        Place:<input type="text" ng-model="jobPlace" >
+        Dates: from<input type="text" ng-model="jobDates" id="dateFrom">
+        to<input type="text" ng-model="jobDates2" id="dateTill">
+        Content: <input type="text" ng-model="jobBody">
+        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
+    </form>
+    </div>
 
   </div>
   
