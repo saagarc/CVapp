@@ -60,6 +60,7 @@
   <div class="bodyhome row">
     <section class="experience col-md-6" >
       <div class="row">
+        <button ng-click="switchButton(jobs)">Edit</button>
         <h2>Experience</h2>
         <!-- <div class="jobContainer">
           <h3>Webdeveloper</h3>
@@ -70,32 +71,64 @@
         </div> -->
 
         <div id="{{'job'+$index}}" class="jobContainer" ng-repeat="job in jobs">
-          <h3>{{job.title}}</h3>
+          <h3>{{job.job}}</h3>
           <span class="company">{{job.company}}</span>
           <span class="place">{{job.place}}</span>
           <span class="dates pull-right">{{job.dates[1]}}</span><span class="dates pull-right">{{job.dates[0]}}</span>
           <p>{{job.body}}</p>
-          <button ng-click="removeJob($index)">Remove</button>
-          <button ng-click="editButton($index)">Edit</button>
+          <button ng-click="removeJob($index, jobs)">Remove</button>
+          <button ng-click="editButton($index, jobs)">Edit</button>
         </div>
 
         
 
       </div>
     </section>
+      <section class="education col-md-6">
+        <div class="row">
+          <button ng-click="switchButton(educations)">Edit</button>
+          <h2>Education</h2>
+          <!-- <div class="jobContainer">
+            <h3>Webdeveloper</h3>
+            <span class="company">@Mediabureau</span>
+            <span class="place">Almere</span>
+            <span class="dates pull-right">25 january 2014 - 25 january 2015</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis officia fugit, assumenda ad soluta atque eum facilis incidunt esse. Mollitia ea, unde. Esse voluptas molestias magni rerum deleniti, aperiam corporis.</p>
+          </div> -->
 
-    <section class="education col-md-6">
-      
+          <div id="{{'education'+$index}}" class="jobContainer" ng-repeat="education in educations">
+            <h3>{{education.education}}</h3>
+            <span class="company">{{education.schoolName}}</span>
+            <span class="schoolName">{{education.place}}</span>
+            <span class="dates pull-right">{{education.dates[1]}}</span><span class="dates pull-right">{{education.dates[0]}}</span>
+            <p>{{education.state}}</p>
+            <button ng-click="removeJob($index, educations)">Remove</button>
+            <button ng-click="editButton($index, educations)">Edit</button>
+
+          </div>
+
+          
+
+        </div> 
     </section>
     
     <div class="edit-modal" >
-      <form name="edit-experience" ng-submit="addJob()">
-        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle">
-        Company Name:<input type="text" name="company" value="Media" ng-model="jobCompany">
-        Place:<input type="text" ng-model="jobPlace" >
-        Dates: from<input type="text" ng-model="jobDates" id="dateFrom">
-        to<input type="text" ng-model="jobDates2" id="dateTill">
-        Content: <input type="text" ng-model="jobBody">
+      <form class= "inputForm" name="edit-experience" ng-submit="addJob(jobs)" id="job-form" style="display:none">
+        Job Title:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle" id="job-title">
+        Company Name:<input type="text" name="company" value="Media" ng-model="jobCompany" id="job-company">
+        Place:<input type="text" ng-model="jobPlace"  id="job-place">
+        Dates: from<input type="text" ng-model="jobDates" id="dateFrom-job" class="datePicker">
+        to<input type="text" ng-model="jobDates2" id="dateTill-job" class="datePicker">
+        Content: <input type="text" ng-model="jobBody" id="job-body">
+        <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
+    </form>
+    <form class= "inputForm" name="edit-experience" ng-submit="addJob(educations)" id="education-form" style="display:none">
+        education:<input name="title" type="text" value="Webdeveloper" ng-model="jobTitle" id="education-education">
+        School Name:<input type="text" name="company" value="Media" ng-model="jobCompany" id="education-schoolName">
+        Place:<input type="text" ng-model="jobPlace" id="education-place" >
+        Dates: from<input type="text" ng-model="jobDates" id="dateFrom-education" class="datePicker">
+        to<input type="text" ng-model="jobDates2" id="dateTill-education" class="datePicker">
+        State: <input type="text" ng-model="jobBody" id="education-state">
         <button type="submit" ng-disabled="edit-experience.$invalid">submit</button>
     </form>
     </div>
